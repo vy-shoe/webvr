@@ -18,8 +18,8 @@
     <body>
         <a-scene avatar-recorder>
             <a-assets>
-                <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-                <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+                <img id="groundTexture" src="/assets/images/grass.jpg">
+                <img id="skyTexture" src="/assets/images/sky2.png">
                 <a-mixin id="voxel"
                     geometry="primitive: dodecahedron; height: 0.5; width: 0.5; depth: 0.5"
                     material="shader: standard"
@@ -29,7 +29,7 @@
             </a-assets>
     
             <a-sky
-                id="bg"
+                id="sky"
                 radius="30"
                 src="#skyTexture"
                 theta-length="90">
@@ -38,9 +38,34 @@
             <a-cylinder
                 id="ground"
                 src="#groundTexture"
-                radius="32"
-                height="0.1">
+                radius="30"
+                height="0.2">
             </a-cylinder>
+
+            <a-entity
+                id="lightSphere"
+                geometry="primitive: sphere"
+                material="shader: flat; color: #ff5e5e"
+                light="type: point; color: #ff8754; intensity: 0.4"
+                dir="alternate"
+                loop="true"
+                position="2 5 0"
+                animation="property: position; opacity
+                            from: -20 5 -2;
+                            to: 20 7 5;
+                            loop:true;
+                            dir:alternate;
+                            dur:5000;
+                            easing:easeInOutCubic"
+            ></a-entity>
+
+            <a-entity
+                id="tree"
+                super-geometry="type: cylinder"
+                super-material="color: #8D4126"
+                geometry="primitive: cylinder; height: 1; segmentsHeight: 50; radius: .2; segmentsRadial: 50" 
+                position="2 0 0"
+            ></a-entity>
     
             <!-- Hands. -->
             <a-entity
@@ -54,7 +79,7 @@
                 hand-controls="right"
                 controller-cursor
                 intersection-spawn="event: click; mixin: voxel"
-            ></a-entity>
+            ></a-entity
     
             <!-- Camera. -->
             <a-camera>
