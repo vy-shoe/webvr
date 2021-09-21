@@ -31,4 +31,4 @@
         el.sceneEl.appendChild(spawnEl);
       });
     }
-  });
+});
