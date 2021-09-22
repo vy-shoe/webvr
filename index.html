@@ -26,6 +26,22 @@
                     random-color
                     snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"
                 ></a-mixin>
+                <a-asset-item
+                    id="tree1-o"
+                    src="/assets/images/tree/lowpolytree.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tree1-m"
+                    src="/assets/images/tree/lowpolytree.mtl"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tree2-o"
+                    src="/assets/images/tree/Lowpoly_tree_sample.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tree2-m"
+                    src="/assets/images/tree/Lowpoly_tree_sample.mtl"
+                ></a-asset-item>
             </a-assets>
     
             <a-sky
@@ -46,26 +62,49 @@
                 id="lightSphere"
                 geometry="primitive: sphere"
                 material="shader: flat; color: #ff5e5e"
-                light="type: point; color: #ff8754; intensity: 0.4"
+                light="type: point; color: #ff8754; intensity: 0.5"
                 dir="alternate"
                 loop="true"
-                position="2 5 0"
+                position="-10 18 -2"
                 animation="property: position; opacity
-                            from: -20 5 -2;
-                            to: 20 7 5;
+                            from: -10 18 -2;
+                            to: 20 20 15;
                             loop:true;
                             dir:alternate;
-                            dur:5000;
+                            dur:7000;
+                            easing:easeInOutCubic"
+            ></a-entity>
+            <a-entity
+                id="lightSphere"
+                geometry="primitive: sphere"
+                material="shader: flat; color: #ff8754"
+                light="type: point; color: #ff5e5e; intensity: 0.5"
+                dir="alternate"
+                loop="true"
+                position="20 15 0"
+                animation="property: position; opacity
+                            from: 20 15 0;
+                            to: -10 20 2;
+                            loop:true;
+                            dir:alternate;
+                            dur:7000;
                             easing:easeInOutCubic"
             ></a-entity>
 
             <a-entity
-                id="tree"
-                super-geometry="type: cylinder"
-                super-material="color: #8D4126"
-                geometry="primitive: cylinder; height: 1; segmentsHeight: 50; radius: .2; segmentsRadial: 50" 
-                position="2 0 0"
+                id="tree1"
+                obj-model="obj:#tree1-o; mtl:#tree1-m"
+                position="-10 0 0"
+                scale="2 3 2"
             ></a-entity>
+            <a-entity
+                id="tree2"
+                obj-model="obj:#tree2-o; mtl:#tree2-m"
+                position="14 0 0"
+                scale="0.5 0.5 0.5"
+            ></a-entity>
+            
+            
     
             <!-- Hands. -->
             <a-entity
