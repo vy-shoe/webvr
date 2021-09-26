@@ -17,15 +17,18 @@
     </head>
     <body>
         <a-scene avatar-recorder>
+            <!-- Assets! -->
             <a-assets>
                 <img id="groundTexture" src="/assets/images/grass.jpg">
                 <img id="skyTexture" src="/assets/images/sky2.png">
+                <img id="pondTexture" src="/assets/images/pond.jpeg">
                 <a-mixin id="voxel"
                     geometry="primitive: dodecahedron; height: 0.5; width: 0.5; depth: 0.5"
                     material="shader: standard"
                     random-color
                     snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"
                 ></a-mixin>
+                <!-- 3D Model Assets -->
                 <a-asset-item
                     id="tree1-o"
                     src="/assets/images/tree/lowpolytree.obj"
@@ -50,6 +53,39 @@
                     id="cloud-m"
                     src="/assets/images/environment/uploads_files_2887947_Cloud+Polygon+Blender+1.mtl"
                 ></a-asset-item>
+                <a-asset-item
+                    id="flower1-o"
+                    src="/assets/images/flowers/uploads_files_67991_poppies.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="flower1-m"
+                    src="/assets/images/flowers/uploads_files_67991_poppies.mtl"
+                ></a-asset-item>
+                <a-asset-item
+                    id="flower2-o"
+                    src="/assets/images/flowers/uploads_files_2972748_poppyflower.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="flower2-m"
+                    src="/assets/images/flowers/uploads_files_2972748_poppyflower.mtl"
+                ></a-asset-item>
+                <a-asset-item
+                    id="grass-o"
+                    src="/assets/images/environment/uploads_files_2616453_grass.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="grass-m"
+                    src="/assets/images/environment/uploads_files_2616453_grass.mtl"
+                ></a-asset-item>
+                <a-asset-item
+                    id="environment-o"
+                    src="/assets/images/environment/all pack 01.obj"
+                ></a-asset-item>
+                <a-asset-item
+                    id="environment-m"
+                    src="/assets/images/environment/all pack 01.mtl"
+                ></a-asset-item>
+                
             </a-assets>
     
             <a-sky
@@ -62,7 +98,7 @@
             <a-cylinder
                 id="ground"
                 src="#groundTexture"
-                radius="30"
+                radius="40"
                 height="0.2">
             </a-cylinder>
 
@@ -160,12 +196,91 @@
                     position="-7 0 -24"
                     scale="0.3 0.4 0.3"
                 ></a-entity>
+                <a-entity
+                    id="tree2"
+                    obj-model="obj:#tree2-o; mtl:#tree2-m"
+                    position="-17 0 -2"
+                    scale="0.2 0.34 0.4"
+                ></a-entity>
 
             </a-entity>
             
             <!-- Flowers. -->
             <a-entity>
-
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="15 0 7"
+                    scale="0.3 0.3 0.3"
+                ></a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="12 0 17"
+                    scale="0.2 0.2 0.3"
+                ></a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="-5.6 0 -11"
+                    scale="0.1 0.25 0.1"
+                ></a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="-7.5 0 7.5"
+                    scale="0.2 0.3 0.1"
+                ></a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="20 0 -21"
+                    scale="0.1 0.2 0.1"                   
+                ></a-entity>
+                <a-entity
+                    id="flower2"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="-2 0 14"
+                    scale="0.4 0.4 0.5"
+                    animation="property: rotation; to: 0 360 0;
+                            loop:true;
+                            dir:alternate;
+                            dur:10000;
+                            easing:easeInOutCubic"
+                ></a-entity>
+                <a-entity
+                    id="flower2"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="-19 0 -11"
+                    scale="0.5 0.8 0.5"
+                    animation="property: rotation; to: 0 360 0;
+                            loop:true;
+                            dir:alternate;
+                            dur:10000;
+                            easing:easeInOutCubic"
+                ></a-entity>
+                <a-entity
+                    id="flower2"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="5 0 5"
+                    scale="0.4 0.6 0.5"
+                    animation="property: rotation; to: 0 360 0;
+                            loop:true;
+                            dir:alternate;
+                            dur:8000;
+                            easing:easeInOutCubic"
+                ></a-entity>
+                <a-entity
+                    id="flower2"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="18 0 16"
+                    scale="0.4 0.7 0.5"
+                    animation="property: rotation; to: 0 360 0;
+                            loop:true;
+                            dir:alternate;
+                            dur:7000;
+                            easing:easeInOutCubic"
+                ></a-entity>
             </a-entity>
             
             <!-- Clouds. -->
@@ -205,8 +320,79 @@
 
             </a-entity>
 
+            <!-- Grass. -->
+            <a-entity>
+                <a-entity
+                    id="grass"
+                    obj-model="obj:#grass-o; mtl:#grass-m"
+                    position="5 -1 7"
+                    scale="2 1.2 2"
+                ></a-entity>
+                <a-entity
+                    id="grass"
+                    obj-model="obj:#grass-o; mtl:#grass-m"
+                    position="-6 -1 14"
+                    scale="2 2.3 2"
+                ></a-entity>
+                <a-entity
+                id="grass"
+                obj-model="obj:#grass-o; mtl:#grass-m"
+                position="4 -1 18"
+                scale="2 2 2"
+                ></a-entity>
+                <a-entity
+                    id="grass"
+                    obj-model="obj:#grass-o; mtl:#grass-m"
+                    position="-10 -1 -13"
+                    scale="2 3 2"
+                ></a-entity>
+            </a-entity>
+
+            <!-- Pond. -->
+            <a-entity>
+                <a-circle 
+                    color="#5dcfc7"
+                    radius="5"
+                    rotation="-90 0 0"
+                    position="9 0.2 -9"
+                    material="roughness: 0.5"
+                    animation__mouseenter="property: components.material.material.color; type: color; to: #31a8d6; startEvents: mouseenter; dur: 500";
+                    animation__mouseleave="property: components.material.material.color; type: color; to: #5dcfc7; startEvents: mouseleave; dur: 500";
+                ></a-circle>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower1-o; mtl:#flower1-m"
+                    position="11.8 0 -8"
+                    scale="0.1 0.1 0.1"
+                ></a-entity>
+                <a-entity
+                    id="grass"
+                    obj-model="obj:#grass-o; mtl:#grass-m"
+                    position="12 0 -7"
+                    scale="1 1 1"
+                ></a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="5 0 -8"
+                    scale="0.1 0.3 0.1"
+                ></a-entity>
+                <a-entity
+                    id="grass"
+                    obj-model="obj:#grass-o; mtl:#grass-m"
+                    position="5 0 -7"
+                    scale="1 1 1"
+                ></a-entity>
+            </a-entity>
+
             <!-- Campfire. -->
             <a-entity>
+                <a-entity
+                    id="flower1"
+                    obj-model="obj:#flower2-o; mtl:#flower2-m"
+                    position="5 0 -8"
+                    scale="0.1 0.3 0.1"
+                ></a-entity>
                 
             </a-entity>
             
