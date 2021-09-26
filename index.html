@@ -7,13 +7,14 @@
     <title>Hello WebVR! * A-Frame</title>
     <meta name="description" content="Vaishu's WebVR! * A-Frame">
     <head>
-        <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
         <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script>
         <script src="https://rawgit.com/dmarcos/aframe-motion-capture/master/dist/aframe-motion-capture.min.js"></script>
         <script src="components/intersection-spawn.js"></script>
         <script src="components/random-color.js"></script>
         <script src="components/snap.js"></script>
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     </head>
     <body>
         <a-scene avatar-recorder>
@@ -22,6 +23,8 @@
                 <img id="groundTexture" src="/assets/images/grass.jpg">
                 <img id="skyTexture" src="/assets/images/sky2.png">
                 <img id="pondTexture" src="/assets/images/pond.jpeg">
+                <img id="fireTexture" src="/assets/images/fire.jpeg">
+                <img id="flame" src="/assets/images/flame.png">
                 <a-mixin id="voxel"
                     geometry="primitive: dodecahedron; height: 0.5; width: 0.5; depth: 0.5"
                     material="shader: standard"
@@ -76,14 +79,6 @@
                 <a-asset-item
                     id="grass-m"
                     src="/assets/images/environment/uploads_files_2616453_grass.mtl"
-                ></a-asset-item>
-                <a-asset-item
-                    id="environment-o"
-                    src="/assets/images/environment/all pack 01.obj"
-                ></a-asset-item>
-                <a-asset-item
-                    id="environment-m"
-                    src="/assets/images/environment/all pack 01.mtl"
                 ></a-asset-item>
                 
             </a-assets>
@@ -387,11 +382,17 @@
 
             <!-- Campfire. -->
             <a-entity>
-                <a-entity
-                    id="flower1"
-                    obj-model="obj:#flower2-o; mtl:#flower2-m"
-                    position="5 0 -8"
-                    scale="0.1 0.3 0.1"
+                <a-cone 
+                    src="#fireTexture"
+                    radius-bottom="0.8"
+                    radius-top="0"
+                    position="1 1 1"
+                    light="type: ambient; color: #ff6608; intensity: 0.2"
+                ></a-cone>
+                <a-entity 
+                    position="1 1 1"
+                    particle-system="preset: default; texture: /assets/images/flame.png; color: #ff6608, #ff9c08; accelerationValue: 0, 0.5, 0; velocityValue: 0 0.2 0;
+                        velocitySpread: 0 1 0"
                 ></a-entity>
                 
             </a-entity>
