@@ -20,6 +20,7 @@
   
         // Snap intersection point to grid and offset from center.
         spawnEl.setAttribute('position', evt.detail.intersection.point);
+        // spawnEl.setAttribute('dynamic-body', "mass: 1");
   
         // Set components and properties.
         Object.keys(data).forEach(name => {

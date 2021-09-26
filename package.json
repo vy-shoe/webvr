@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "aframe-extras.ocean": "^6.1.1",
+    "aframe-particle-system-component": "^1.1.3"
+  }
+}
