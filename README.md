@@ -1,4 +1,4 @@
-# webvr
+# A Trip to Sunset Camp in WebVR
 In this 3D AFrame project, I made a summer camp 3-D environment. 
 Originally, when designing the sky, I could not find any assets that blended well in 360 or any good searches of 360 images that were sunsets, 
 so I decided to use Photoshop and blend the ends of the photos together so the edge weren't harsh in rendering as an Aframe texture. 
